@@ -213,3 +213,138 @@
             #hero h1 { font-size: 3.75rem; }
             #hero p { font-size: 1.25rem; }
         }
+        
+        /*
+         * ===============================================
+         * FEATURES SECTION (#features)
+         * ===============================================
+         */
+        #features { background-color: var(--color-white); }
+        
+        .feature-card {
+            text-align: center;
+            padding: 1.5rem;
+            background-color: #F9FAFB;
+            border-radius: 0.5rem;
+            box-shadow: 0 1px 2px 0 rgba(0,0,0,0.05);
+            transition: box-shadow 0.3s ease;
+        }
+        .feature-card:hover {
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+        }
+
+        .feature-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 4rem; width: 4rem;
+            margin: 0 auto 1rem;
+            background-color: var(--color-primary-light);
+            color: var(--color-primary);
+            border-radius: 50%;
+        }
+        
+        .feature-icon svg { width: 2rem; height: 2rem; }
+
+        .feature-card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        .feature-card p { color: var(--color-text-light); }
+        
+        /*
+         * ===============================================
+         * CSS-ONLY PAGINATION
+         * ===============================================
+         */
+        .css-slider {
+            position: relative;
+        }
+        /* Hide the radio buttons that control the state */
+        .css-slider > input {
+            display: none;
+        }
+        /* Base styles for slides */
+        .css-slider .paginated-item {
+            display: none;
+            width: 100%;
+        }
+        
+        /* Base styles for slider navigation buttons (which are labels) */
+        .slider-nav {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            transform: translateY(-50%);
+            display: flex;
+            justify-content: space-between;
+            pointer-events: none; /* Make container non-interactive */
+        }
+        
+        .slider-nav label {
+            pointer-events: auto; /* Make labels interactive */
+            background-color: var(--color-white);
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+        }
+        .slider-nav label:hover { background-color: #F3F4F6; }
+        
+        /* Show the active slide using the :checked pseudo-class and sibling combinator */
+        #ss1:checked ~ .slider-content #ss-item-1,
+        #ss2:checked ~ .slider-content #ss-item-2,
+        #ss3:checked ~ .slider-content #ss-item-3 { display: flex; } /* Flex for screenshots */
+
+        #t1:checked ~ .slider-content #t-item-1,
+        #t2:checked ~ .slider-content #t-item-2,
+        #t3:checked ~ .slider-content #t-item-3 { display: block; } /* Block for testimonials */
+        
+        /* Show the correct navigation labels for the active slide */
+        #ss1:checked ~ .slider-nav .nav-ss1,
+        #ss2:checked ~ .slider-nav .nav-ss2,
+        #ss3:checked ~ .slider-nav .nav-ss3 { display: flex; justify-content: space-between; width:100%;}
+        
+        #t1:checked ~ .slider-nav .nav-t1,
+        #t2:checked ~ .slider-nav .nav-t2,
+        #t3:checked ~ .slider-nav .nav-t3 { display: flex; justify-content: space-between; width:100%;}
+        
+        /* Hide all nav groups by default */
+        .slider-nav > div {
+            display: none;
+        }
+
+        /*
+         * ===============================================
+         * SCREENSHOTS SECTION (#screenshots)
+         * ===============================================
+         */
+        .screenshots-slider-wrapper {
+            max-width: 24rem;
+        }
+        
+        .screenshots-slider-wrapper img {
+            border-radius: 1rem;
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+            margin: 0 auto;
+        }
+        
+        .screenshots-slider-wrapper .slider-nav label {
+             padding: 0.75rem;
+        }
+
+        .screenshots-slider-wrapper .slider-nav svg {
+            width: 1.5rem; height: 1.5rem;
+            color: var(--color-text-light);
+        }
+
+        @media (min-width: 768px) {
+            .screenshots-slider-wrapper { max-width: 28rem; }
+             .screenshots-slider-wrapper .slider-nav { left: -1.5rem; right: -1.5rem; }
+        }
+        @media (min-width: 1024px) {
+            .screenshots-slider-wrapper { max-width: 32rem; }
+        }
